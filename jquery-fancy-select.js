@@ -8,7 +8,7 @@
 
     plugin.settings = {};
 
-    var $element = $(element);
+    var $select = $(element);
     var element = element;
     
 
@@ -74,7 +74,7 @@
       var list = document.createElement("ul");
       plugin.list = $(list);
 
-      $element.find("option").each(function(){
+      $select.find("option").each(function(){
 
         //Set up wrapper element
         var item = document.createElement("li");
@@ -95,9 +95,10 @@
       $(wrapper).append(selectedItem);
       $(wrapper).addClass("FancySelect").append(input).append(list);
     
-      $element.after(wrapper);
-      $element.before("<span>Original select: </span>");
-      
+      $select.after(wrapper);
+
+
+      $select.hide();
       $(list).hide();
       
       

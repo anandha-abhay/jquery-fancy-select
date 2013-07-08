@@ -3,14 +3,27 @@ body * {
   font-size: 13px;
 }
 
-.FancySelect {
-  padding: 5px;
+
+h4 {
+  padding: 0;
+  margin: 20px 0 5px 0;
 }
+
+
+/* Plugin stuff starts here*/
+
+.FancySelect {
+ 
+}
+
 
 .Open {
   padding: 3px;
   border: solid 2px #BBB;
   -webkit-border-radius: 3px;
+  position: relative;
+  left: -5px;
+  top: -5px;
 }
 
 .FancySelect .SelectedItem {
