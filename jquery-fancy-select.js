@@ -24,7 +24,16 @@
         var value = $(this).data("value");
         selectOption($(this),value);
       });
+
+      $(plugin.el).on("click",".SelectedItem a", function(){
+        clearSelection();
+      });
       
+    }
+    
+    var clearSelection = function(){
+      plugin.input.show().val("");
+      plugin.selectedItem.hide();
     }
     
     var selectOption = function(clickedItem, value) {
