@@ -21,11 +21,13 @@ h4 {
 .FancySelect {
   position: relative;
   height: 20px;
+  display: inline-block;
 }
 
 .FancySelect .InnerWrapper {
   position: absolute;
   background: white;
+
 }
 
 .FancySelect .Open {
@@ -52,15 +54,13 @@ h4 {
 
 .FancySelect input {
   margin:0;
-  padding: 3px;
+  padding: 4px;
   width: 220px;
 }
 
 .FancySelect ul {
   padding: 0;
   margin: 3px 0 0 0;
-  
-  border: solid 1px #DDD;
 }
 
 .FancySelect li {
