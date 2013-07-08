@@ -60,6 +60,9 @@ body * {
   border-bottom: none;
 }
 
+.FancySelect li.no-match {
+  display: none;
+}
 
 /*Fields*/
 
