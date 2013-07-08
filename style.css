@@ -4,18 +4,22 @@ body * {
 }
 
 .FancySelect {
-  padding: 10px;
-  border: solid 5px #DDD;
+  padding: 5px;
+}
+
+.Open {
+  padding: 3px;
+  border: solid 2px #BBB;
+  -webkit-border-radius: 3px;
 }
 
 .FancySelect .SelectedItem {
   border: solid 1px #BBB;
   -webkit-border-radius: 3px;
-
-  background: #EEE -webkit-linear-gradient(#EEE,#DDD);
+  background: #EEE -webkit-linear-gradient(#FFF,#DDD);
   padding: 4px 6px;
   display: inline-block;
-  margin: 0 0 3px 0;
+  margin: 0;
 }
 
 .FancySelect .SelectedItem a {
@@ -23,14 +27,15 @@ body * {
 }
 
 .FancySelect input {
-  margin: 0 0 3px 0;
+  margin:0;
   padding: 3px;
   width: 220px;
 }
 
 .FancySelect ul {
   padding: 0;
-  margin: 0;
+  margin: 3px 0 0 0;
+  
   border: solid 1px #DDD;
 }
 

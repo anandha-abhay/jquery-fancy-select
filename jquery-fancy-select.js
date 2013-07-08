@@ -29,6 +29,20 @@
         clearSelection();
       });
       
+      $(plugin.el).find("input").focus(function(){
+        showList();
+      })
+      
+    }
+    
+    var showList = function(){
+      plugin.list.show();
+      plugin.el.addClass("Open")
+    }
+    
+    var hideList = function(){
+      plugin.list.hide();
+      plugin.el.removeClass("Open")
     }
     
     var clearSelection = function(){
@@ -39,18 +53,17 @@
     var selectOption = function(clickedItem, value) {
       plugin.input.hide();
       plugin.selectedItem.show();
-
       $(element).val(value);
-      
       plugin.selectedItem.find(".name").text(clickedItem.find(".primary").text());
-
-
+      hideList();
     }
 
 
     var buildFancy = function() {
+      
       var wrapper = document.createElement("div");
       var input = document.createElement("input");
+      $(input).attr("placeholder","Choose an item...");
       var selectedItem = document.createElement("div");
       
       $(selectedItem).append("<span class='name'>Selected Name</span>").addClass("SelectedItem").append("<a href='#'>X</a>").hide();
@@ -59,6 +72,7 @@
       plugin.input = $(input);
 
       var list = document.createElement("ul");
+      plugin.list = $(list);
 
       $element.find("option").each(function(){
 
@@ -81,11 +95,10 @@
       $(wrapper).append(selectedItem);
       $(wrapper).addClass("FancySelect").append(input).append(list);
     
-
-      
       $element.after(wrapper);
       $element.before("<span>Original select: </span>");
       
+      $(list).hide();
       
       
       return wrapper;
