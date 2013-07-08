@@ -42,9 +42,28 @@
 
       $(plugin.el).find("input").on("keyup", function(e) {
         var $target = $(e.target);
-        if (e.keyCode == 27) {
+        var lis = $(plugin.el).find("li matched");
+        if(lis.length === 0) { lis = $(plugin.el).find("li"); }
+        var index = $(lis).index(lis.siblings(".selected"));
+
+        $(plugin.el).find("li").removeClass("selected")
+
+        if (e.keyCode === 27) { // escape
           clearSelection();
           hideList();
+        } else if(e.keyCode === 38) { // up
+          $(plugin.el).find("li").removeClass("selected")
+          $(lis[index-1]).addClass("selected");
+        } else if(e.keyCode === 40) { // down
+          $(plugin.el).find("li").removeClass("selected")
+          if(index === lis.length -1) {
+            $(lis[index]).addClass("selected");
+            return;
+          }
+          $(lis[index+1]).addClass("selected");
+        } else if(e.keyCode === 13) { // enter
+          if(index < 0){ return; }
+          $(lis[index]).click();
         } else {
           search($target.val());
         }
