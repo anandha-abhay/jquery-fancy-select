@@ -10,15 +10,39 @@
 
     var $element = $(element);
     var element = element;
+    
 
     plugin.init = function() {
       plugin.settings = $.extend({}, defaults, options);
       plugin.el = $(buildFancy());
+      addEvents();
     };
+
+    var addEvents = function(){
+
+      $(plugin.el).on("click","li", function(){
+        var value = $(this).data("value");
+        $(element).val(value);
+        plugin.input.val($(this).find(".primary").text());
+        selectOption();
+      });
+      
+    }
+    
+    var selectOption = function() {
+      plugin.input.hide();
+      
+      plugin.input.after("<div>Insert Selected Thing here (x)</div>");
+      
+    }
+
 
     var buildFancy = function() {
       var wrapper = document.createElement("div");
       var input = document.createElement("input");
+
+      plugin.input = $(input);
+
       var list = document.createElement("ul");
 
       $element.find("option").each(function(){
@@ -26,8 +50,9 @@
         //Set up wrapper element
         var item = document.createElement("li");
 
+
         //Set the primary field based on the <option> text
-        $(item).append($("<div class='primary'></div>").text($(this).text()));
+        $(item).append($("<div class='primary'></div>").text($(this).text())).data("value",$(this).attr("value"));
 
         //Set additional fields based on the data attributes, adding classname
         var data = $(this).data();

@@ -3,7 +3,6 @@ body * {
   font-size: 13px;
 }
 
-
 .FancySelect {
   padding: 10px;
   border: solid 5px #DDD;
@@ -21,10 +20,16 @@ body * {
   padding: 5px;
   border-bottom: solid 1px #DDD;
   color: #777;
+  cursor: pointer;
 }
 
+.FancySelect li:hover {
+  background: blue;
+}
 
-
+.FancySelect li:hover div {
+  color: white;
+}
 
 .FancySelect li:last-child {
   border-bottom: none;
