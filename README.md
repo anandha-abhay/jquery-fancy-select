@@ -1,7 +1,7 @@
 jquery-fancy-select
 ===================
 
-Turns your boring select lists into fancy select lists!  
+Turns your boring select lists into fancy select lists!
 
 Features:
 ---------
@@ -9,6 +9,12 @@ Features:
 *  Behaves just like a select list!  You can expect events to trigger on the select list you initialized.
 *  Data attributes generates html with class names taken from the data attributes
 *  Searchable select options
+
+Usage
+-----
+<code>
+  $(".my-select").fancySelect();
+</code>
 
 MIT License
 -----------
