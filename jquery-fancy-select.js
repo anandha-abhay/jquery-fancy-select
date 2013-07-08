@@ -43,12 +43,14 @@
 
     var showList = function(){
       plugin.list.show();
-      plugin.el.addClass("Open")
+      plugin.innerWrapper.addClass("Open")
+      $(".FancySelect").css("z-index",0);
+      plugin.wrapper.css("z-index", 9999);
     };
 
     var hideList = function(){
       plugin.list.hide();
-      plugin.el.removeClass("Open")
+      plugin.innerWrapper.removeClass("Open")
     };
 
     var clearSelection = function(){
@@ -66,16 +68,25 @@
 
     var buildFancy = function() {
 
-      var wrapper = document.createElement("div");
+      var wrapper = document.createElement("div");        //  Outer wrapper for positioning
+      plugin.wrapper = $(wrapper);
+      $(wrapper).addClass("FancySelect");
+      
+      var innerWrapper = document.createElement("div")    //  Inner wrapper for all the elements
+      plugin.innerWrapper = $(innerWrapper);
+      $(innerWrapper).addClass("InnerWrapper");
+
+      //Create the input
       var input = document.createElement("input");
       $(input).attr("placeholder","Choose an item...");
-      var selectedItem = document.createElement("div");
-
-      $(selectedItem).append("<span class='name'>Selected Name</span>").addClass("SelectedItem").append("<a href='#'>X</a>").hide();
-
-      plugin.selectedItem = $(selectedItem);
       plugin.input = $(input);
+      
+      //Create selected item markup
+      var selectedItem = document.createElement("div");
+      $(selectedItem).append("<span class='name'>Selected Name</span>").addClass("SelectedItem").append("<a href='#'>X</a>").hide();
+      plugin.selectedItem = $(selectedItem);
 
+      //List markup
       var list = document.createElement("ul");
       plugin.list = $(list);
 
@@ -96,8 +107,9 @@
         $(list).append(item);
       });
 
-      $(wrapper).append(selectedItem);
-      $(wrapper).addClass("FancySelect").append(input).append(list);
+      $(wrapper).append(innerWrapper);
+      $(innerWrapper).append(selectedItem);
+      $(innerWrapper).append(input).append(list);
     
       $select.after(wrapper);
       $select.hide();

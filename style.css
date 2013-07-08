@@ -1,3 +1,9 @@
+body {
+  padding: 15px;
+  background: #EFEFEF;
+  
+}
+
 body * {
   font-family: Helvetica, Arial, sans-serif;
   font-size: 13px;
@@ -13,13 +19,18 @@ h4 {
 /* Plugin stuff starts here*/
 
 .FancySelect {
- 
+  position: relative;
+  height: 20px;
 }
 
+.FancySelect .InnerWrapper {
+  position: absolute;
+  background: white;
+}
 
-.Open {
+.FancySelect .Open {
   padding: 3px;
-  border: solid 2px #BBB;
+  border: solid 1px #AAA;
   -webkit-border-radius: 3px;
   position: relative;
   left: -5px;
