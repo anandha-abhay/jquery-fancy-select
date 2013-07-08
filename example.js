@@ -1,3 +1,3 @@
 $(document).ready(function(){
-  $(".Fancy").fancySelect();
+  $(".Fancy").fancySelect({placeholder:"My placeholder text"});
 })

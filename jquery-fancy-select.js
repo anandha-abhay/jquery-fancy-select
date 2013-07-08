@@ -2,6 +2,7 @@
   $.fancySelect = function(element, options) {
 
     var defaults = {
+      placeholder: "Choose an item..."
     };
 
     var plugin = this;
@@ -23,8 +24,8 @@
         selectOption($(this),value);
 
         // Bubble up events
-        $element.change();
-        $element.click();
+        $select.change();
+        $select.click();
       });
 
       $(plugin.el).on("click",".SelectedItem a", function(){
@@ -71,16 +72,16 @@
       var wrapper = document.createElement("div");        //  Outer wrapper for positioning
       plugin.wrapper = $(wrapper);
       $(wrapper).addClass("FancySelect");
-      
+
       var innerWrapper = document.createElement("div")    //  Inner wrapper for all the elements
       plugin.innerWrapper = $(innerWrapper);
       $(innerWrapper).addClass("InnerWrapper");
 
       //Create the input
       var input = document.createElement("input");
-      $(input).attr("placeholder","Choose an item...");
+      $(input).attr("placeholder",plugin.settings.placeholder);
       plugin.input = $(input);
-      
+
       //Create selected item markup
       var selectedItem = document.createElement("div");
       $(selectedItem).append("<span class='name'>Selected Name</span>").addClass("SelectedItem").append("<a href='#'>X</a>").hide();
@@ -110,9 +111,8 @@
       $(wrapper).append(innerWrapper);
       $(innerWrapper).append(selectedItem);
       $(innerWrapper).append(input).append(list);
-    
       $select.after(wrapper);
-      $select.hide();
+      //$select.hide();
 
       $(list).hide();
       return wrapper;
