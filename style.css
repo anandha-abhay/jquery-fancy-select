@@ -62,7 +62,7 @@ h4 {
   position: absolute;
   right: 5px;
   top: 5px;
-  background: url(x_icon.png);
+  background: center no-repeat url(x_icon.png);
 }
 
 .FancySelect .SelectedItem a:hover {

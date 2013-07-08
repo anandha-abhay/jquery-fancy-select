@@ -2,7 +2,7 @@
   $.fancySelect = function(element, options) {
 
     var defaults = {
-      placeholder: "Choose an item..."
+      // placeholder: "Choose an item..."
     };
 
     var plugin = this;
@@ -89,23 +89,28 @@
 
       //Create the input
       var input = document.createElement("input");
-      $(input).attr("placeholder",plugin.settings.placeholder);
+      
+      var placeholder = $select.find("option").not("[value]").text();
+
+      $(input).attr("placeholder",placeholder);
+
       plugin.input = $(input);
 
       //Create selected item markup
       var selectedItem = document.createElement("div");
-      $(selectedItem).append("<span class='name'>Selected Name</span>").addClass("SelectedItem").append("<a href='#'></a>").hide();
+      $(selectedItem).append("<span class='name'>Selected Name</span>").addClass("SelectedItem").append("<a title='Remove' href='#'></a>").hide();
       plugin.selectedItem = $(selectedItem);
 
       //List markup
       var list = document.createElement("ul");
       plugin.list = $(list);
 
-      $select.find("option").each(function(){
+      //Add only items that have a value attribute
+      $select.find("option[value]").each(function(){
 
         //Set up wrapper element
         var item = document.createElement("li");
-
+          
         //Set the primary field based on the <option> text
         $(item).append($("<div class='primary'></div>").text($(this).text())).data("value",$(this).attr("value"));
 
@@ -116,6 +121,7 @@
         };
 
         $(list).append(item);
+     
       });
 
       $(wrapper).append(innerWrapper);
