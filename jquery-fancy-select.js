@@ -84,9 +84,12 @@
 
     var search = function(input) {
       var searchRegex = new RegExp(input, "gi");
-      var results = [];
+
+      // reset the dom
       plugin.el.$("li").removeClass("no-match");
       plugin.el.$("li").removeClass("match");
+
+      // add classes based on matches
       plugin.el.$("li").each(function(index) {
         var $this = $(this);
         var searchableText = $this.$(".primary").html();
