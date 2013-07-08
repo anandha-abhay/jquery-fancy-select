@@ -8,6 +8,17 @@ body * {
   border: solid 5px #DDD;
 }
 
+.FancySelect .SelectedItem {
+  border: solid 1px #BBB;
+  background: #DDD;
+  padding: 4px;
+  display: inline-block;
+}
+
+.FancySelect .SelectedItem a {
+  margin-left: 5px;
+}
+
 .FancySelect ul {
   padding: 0;
   margin: 0;

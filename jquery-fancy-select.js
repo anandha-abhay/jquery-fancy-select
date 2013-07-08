@@ -22,25 +22,31 @@
 
       $(plugin.el).on("click","li", function(){
         var value = $(this).data("value");
-        $(element).val(value);
-        plugin.input.val($(this).find(".primary").text());
-        selectOption();
+        selectOption($(this),value);
       });
       
     }
     
-    var selectOption = function() {
+    var selectOption = function(clickedItem, value) {
       plugin.input.hide();
+      plugin.selectedItem.show();
+
+      $(element).val(value);
       
-      plugin.input.after("<div>Insert Selected Thing here (x)</div>");
-      
+      plugin.selectedItem.find(".name").text(clickedItem.find(".primary").text());
+
+
     }
 
 
     var buildFancy = function() {
       var wrapper = document.createElement("div");
       var input = document.createElement("input");
-
+      var selectedItem = document.createElement("div");
+      
+      $(selectedItem).append("<span class='name'>Selected Name</span>").addClass("SelectedItem").append("<a href='#'>X</a>").hide();
+    
+      plugin.selectedItem = $(selectedItem);
       plugin.input = $(input);
 
       var list = document.createElement("ul");
@@ -63,9 +69,16 @@
         $(list).append(item);
       });
 
+      $(wrapper).append(selectedItem);
       $(wrapper).addClass("FancySelect").append(input).append(list);
+    
+
+      
       $element.after(wrapper);
       $element.before("<span>Original select: </span>");
+      
+      
+      
       return wrapper;
     };
 
