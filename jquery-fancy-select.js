@@ -36,9 +36,18 @@
         showList();
       });
 
+      $(plugin.el).find("input").click(function(){
+        showList();
+      });
+
       $(plugin.el).find("input").on("keyup", function(e) {
         var $target = $(e.target);
-        search($target.val());
+        if (e.keyCode == 27) {
+          clearSelection();
+          hideList();
+        } else {
+          search($target.val());
+        }
       });
     };
 
@@ -56,6 +65,7 @@
 
     var clearSelection = function(){
       plugin.input.show().val("");
+      search("");
       plugin.selectedItem.hide();
     };
 
