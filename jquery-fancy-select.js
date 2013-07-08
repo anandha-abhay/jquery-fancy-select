@@ -129,7 +129,7 @@
       $(innerWrapper).append(input).append(list);
       $select.after(wrapper);
       
-      //$select.hide();
+      $select.hide();
 
       $(list).hide();
       return wrapper;
