@@ -84,7 +84,7 @@
 
       //Create selected item markup
       var selectedItem = document.createElement("div");
-      $(selectedItem).append("<span class='name'>Selected Name</span>").addClass("SelectedItem").append("<a href='#'>X</a>").hide();
+      $(selectedItem).append("<span class='name'>Selected Name</span>").addClass("SelectedItem").append("<a href='#'></a>").hide();
       plugin.selectedItem = $(selectedItem);
 
       //List markup
@@ -112,6 +112,7 @@
       $(innerWrapper).append(selectedItem);
       $(innerWrapper).append(input).append(list);
       $select.after(wrapper);
+      
       //$select.hide();
 
       $(list).hide();

@@ -3,6 +3,10 @@ body {
   background: #EFEFEF;
   
 }
+select {
+  display: block;
+}
+
 
 body * {
   font-family: Helvetica, Arial, sans-serif;
@@ -35,8 +39,8 @@ h4 {
   border: solid 1px #AAA;
   -webkit-border-radius: 3px;
   position: relative;
-  left: -5px;
-  top: -5px;
+  left: -4px;
+  top: -4px;
 }
 
 .FancySelect .SelectedItem {
@@ -46,10 +50,23 @@ h4 {
   padding: 4px 6px;
   display: inline-block;
   margin: 0;
+  padding-right: 25px;
 }
 
 .FancySelect .SelectedItem a {
   margin-left: 5px;
+  display: block;
+  opacity: .5;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  background: url(x_icon.png);
+}
+
+.FancySelect .SelectedItem a:hover {
+  opacity: 1;
 }
 
 .FancySelect input {
