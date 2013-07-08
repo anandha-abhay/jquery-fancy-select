@@ -1,0 +1,39 @@
+body * {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 13px;
+}
+
+
+.FancySelect {
+  padding: 10px;
+  border: solid 5px #DDD;
+}
+
+.FancySelect ul {
+  padding: 0;
+  margin: 0;
+  border: solid 1px #DDD;
+}
+
+.FancySelect li {
+  list-style-type: none;
+  margin: 0;
+  padding: 5px;
+  border-bottom: solid 1px #DDD;
+  color: #777;
+}
+
+
+
+
+.FancySelect li:last-child {
+  border-bottom: none;
+}
+
+
+/*Fields*/
+
+.FancySelect .primary {
+  font-weight: bold;
+  color: black;
+}

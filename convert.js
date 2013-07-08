@@ -6,7 +6,9 @@ $(document).ready(function(){
 
 function buildFancy(el){
   
-  var wrapper = document.createElement("ul");
+  var wrapper = document.createElement("div");
+  var input = document.createElement("input");
+  var list = document.createElement("ul");
   
   el.find("option").each(function(){
 
@@ -22,9 +24,11 @@ function buildFancy(el){
       $(item).append($("<div></div>").addClass(key).text(data[key]));
     }
 
-    $(wrapper).append(item);
+    $(list).append(item);
 
   });
   
+  $(wrapper).addClass("FancySelect").append(input).append(list);
   el.after(wrapper);
+  el.before("<span>Original select: </span>");
 }
