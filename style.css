@@ -10,13 +10,22 @@ body * {
 
 .FancySelect .SelectedItem {
   border: solid 1px #BBB;
-  background: #DDD;
-  padding: 4px;
+  -webkit-border-radius: 3px;
+
+  background: #EEE -webkit-linear-gradient(#EEE,#DDD);
+  padding: 4px 6px;
   display: inline-block;
+  margin: 0 0 3px 0;
 }
 
 .FancySelect .SelectedItem a {
   margin-left: 5px;
+}
+
+.FancySelect input {
+  margin: 0 0 3px 0;
+  padding: 3px;
+  width: 220px;
 }
 
 .FancySelect ul {
