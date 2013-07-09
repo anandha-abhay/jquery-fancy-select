@@ -3,3 +3,5 @@ Stuff to do
 * prevent window scroll on arrow up/down when a list is open
 * bug > enter won't select an item
 * i can key up/down past the end of the item list
+* bug > when a dropdown list is filtered via the search feature, the arrow up/down keys try to highlight the non-visible elements
+* add ability to style each LI individually, based on it's value attribute?

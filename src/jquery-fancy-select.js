@@ -25,6 +25,15 @@
           hideList();
         }
       });
+
+      // If there is an open dropdown, prevent arrow keys from scrolling page
+      $(window).on("keydown",function(e){
+        if ($(".FancySelect .InnerWrapper.Open").length > 0) {
+          if(e.keyCode === 38 || e.keyCode === 40) {
+            e.preventDefault();
+          }
+        }
+      });
       
       $(plugin.el).on("click","li", function(){
         var value = $(this).data("value");
@@ -47,9 +56,9 @@
         }
       })
 
+  
+      $(plugin.el).find("input").on("keyup", function(e) {  
 
-      $(plugin.el).find("input").on("keyup", function(e) {
-        
         var $target = $(e.target);
         var lis = $(plugin.el).find("li matched");
         if(lis.length === 0) { lis = $(plugin.el).find("li"); }
@@ -139,7 +148,7 @@
         var item = document.createElement("li");
           
         //Set the primary field based on the <option> text
-        $(item).append($("<div class='primary'></div>").text($(this).text())).data("value",$(this).attr("value"));
+        $(item).attr("value",$(this).attr("value")).append($("<div class='primary'></div>").text($(this).text())).data("value",$(this).attr("value"));
 
         //Set additional fields based on the data attributes, adding classname
         var data = $(this).data();

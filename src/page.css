@@ -24,3 +24,27 @@ h4 {
   top: 5px;
   font-size: 29px;
 }
+
+
+
+
+li[value="chipmunk"] .picture {
+  display: block;
+  background: green;
+  width: 100px;
+  height: 100px;
+  margin-top: 5px;
+  background: top url(chimpunk.png);
+  background-size: fill;
+  
+}
+
+
+li[value="squirrel"] .picture {
+  display: block;
+  background: red;
+  width: 100px;
+  height: 100px;
+  margin-top: 5px;
+    background: top url(squirrel.png);
+}
