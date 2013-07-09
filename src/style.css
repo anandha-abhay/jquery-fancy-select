@@ -57,6 +57,8 @@
 .FancySelect ul {
   padding: 0;
   margin: 3px 0 0 0;
+  max-height: 300px;
+  overflow-y: auto;
 }
 
 .FancySelect li {
