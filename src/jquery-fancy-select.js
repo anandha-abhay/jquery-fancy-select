@@ -18,6 +18,8 @@
       addEvents();
     };
 
+
+
     var addEvents = function(){
       
       $("body").on("click",function(event){
@@ -130,7 +132,6 @@
 
       plugin.input = $(input);
  
-
       //Create selected item markup
       var selectedItem = document.createElement("div");
       $(selectedItem).append("<span class='name'>Selected Name</span>").addClass("SelectedItem").append("<div class='arrow'></div>");
@@ -140,6 +141,15 @@
       //List markup
       var list = document.createElement("ul");
       plugin.list = $(list);
+      
+      var classList = $select.attr("class").split(/\s+/);
+
+      for (var i = 0; i < classList.length; i++) {
+         if (classList[i] != 'Fancy') {
+           plugin.wrapper.addClass(classList[i]);
+         }
+      }
+
 
       //Add only items that have a value attribute
       $select.find("option[value]").each(function(){

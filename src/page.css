@@ -26,7 +26,20 @@ h4 {
 }
 
 
+.Rodents li {
+  overflow: auto;
+  position: relative;
+}
 
+.Rodents .primary {
+  font-size: 30px;
+  position: absolute;
+  left: 120px;
+}
+
+.Rodents .picture {
+  float: left;
+}
 
 li[value="chipmunk"] .picture {
   display: block;
