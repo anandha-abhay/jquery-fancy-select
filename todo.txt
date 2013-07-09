@@ -1,0 +1,5 @@
+Stuff to do
+
+* prevent window scroll on arrow up/down when a list is open
+* bug > enter won't select an item
+* i can key up/down past the end of the item list

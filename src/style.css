@@ -9,54 +9,68 @@
 .FancySelect .InnerWrapper {
   position: absolute;
   background: white;
+  border: solid 1px #BBB;
+  -webkit-border-radius: 3px;
+  background: #EEE -webkit-linear-gradient(#FFF,#DDD);
+  display: block;
+  width: 300px;
 }
 
 .FancySelect .Open {
   box-shadow: 0px 2px 3px rgba(0,0,0,.15);
-  padding: 5px;
   border: solid 1px #AAA;
   -webkit-border-radius: 3px;
-  position: relative;
-  left: -6px;
-  top: -6px;
+  background: white;
+  padding-bottom: 5px;
+  background: #EEE -webkit-linear-gradient(#EEE ,white 35px);
+  
+}
+
+.FancySelect input,
+.FancySelect ul {
+  display: none;
+}
+
+.FancySelect .Open input,
+.FancySelect .Open ul {
+  display: block;
 }
 
 .FancySelect .SelectedItem {
-  border: solid 1px #BBB;
-  -webkit-border-radius: 3px;
-  background: #EEE -webkit-linear-gradient(#FFF,#DDD);
-  padding: 4px 6px;
-  display: inline-block;
-  margin: 0;
-  padding-right: 25px;
+   cursor: pointer;
+  padding: 6px;
 }
 
-.FancySelect .SelectedItem a {
+.FancySelect .SelectedItem .arrow {
   margin-left: 5px;
   display: block;
   opacity: 1;
-  width: 15px;
-  height: 15px;
+  width: 11px;
+  height: 7px;
   position: absolute;
-  right: 5px;
-  top: 5px;
-  background: top no-repeat url(x_icon.png);
+  right: 7px;
+  top: 10px;
+  background: center no-repeat url(dropdown_arrow_down.png);
 }
 
+.FancySelect .Open .SelectedItem .arrow {
+  background: center no-repeat url(dropdown_arrow_up.png);
+}
+  
 .FancySelect .SelectedItem a:hover {
   background-position: center;
 }
 
 .FancySelect input {
-  margin:0;
-  padding: 4px;
-  width: 220px;
-  background: white url("dropdown_arrow.png") right center no-repeat;
+  margin: 0;
+  padding: 3px;
+  margin: 0px 6px;
+  width: 288px;
 }
 
 .FancySelect ul {
   padding: 0;
-  margin: 3px 0 0 0;
+  margin: 3px 5px 0 5px;
   max-height: 300px;
   overflow-y: auto;
 }

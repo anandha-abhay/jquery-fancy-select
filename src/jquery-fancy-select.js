@@ -39,19 +39,17 @@
         clearSelection();
       });
 
-      $(plugin.el).find("input").focus(function(){
-        showList();
-      });
+      $(plugin.selectedItem).on("click",function(){
+        if(plugin.innerWrapper.hasClass("Open")){
+          hideList();
+        } else {
+          showList();  
+        }
+      })
 
-      $(plugin.el).find("input").click(function(){
-        showList();
-      });
-
-      $(plugin.input).blur(function(){
-        // hideList();
-      });
 
       $(plugin.el).find("input").on("keyup", function(e) {
+        
         var $target = $(e.target);
         var lis = $(plugin.el).find("li matched");
         if(lis.length === 0) { lis = $(plugin.el).find("li"); }
@@ -82,14 +80,12 @@
     };
 
     var showList = function(){
-      plugin.list.show();
       plugin.innerWrapper.addClass("Open")
       $(".FancySelect").css("z-index",0);
       plugin.wrapper.css("z-index", 9999);
     };
 
     var hideList = function(){
-      plugin.list.hide();
       plugin.innerWrapper.removeClass("Open")
     };
 
@@ -100,9 +96,8 @@
     };
 
     var selectOption = function(clickedItem, value) {
-      plugin.input.hide();
-      plugin.selectedItem.show();
       $(element).val(value);
+      
       plugin.selectedItem.find(".name").text(clickedItem.find(".primary").text());
       hideList();
     };
@@ -119,17 +114,19 @@
 
       //Create the input
       var input = document.createElement("input");
-      
-      var placeholder = $select.find("option").not("[value]").text();
 
-      $(input).attr("placeholder",placeholder);
+      var placeholder = $select.find("option").not("[value]").text();
+      
+      // $(input).attr("placeholder",placeholder);
 
       plugin.input = $(input);
+ 
 
       //Create selected item markup
       var selectedItem = document.createElement("div");
-      $(selectedItem).append("<span class='name'>Selected Name</span>").addClass("SelectedItem").append("<a title='Remove' href='#'></a>").hide();
+      $(selectedItem).append("<span class='name'>Selected Name</span>").addClass("SelectedItem").append("<div class='arrow'></div>");
       plugin.selectedItem = $(selectedItem);
+      plugin.selectedItem.find(".name").text(placeholder);
 
       //List markup
       var list = document.createElement("ul");
@@ -161,7 +158,6 @@
       
       $select.hide();
 
-      $(list).hide();
       return wrapper;
     };
 
