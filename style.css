@@ -51,6 +51,7 @@
   margin:0;
   padding: 4px;
   width: 220px;
+  background: white url(dropdown_arrow.png) right center no-repeat;
 }
 
 .FancySelect ul {
@@ -68,12 +69,14 @@
   position: relative;
 }
 
-.FancySelect li:hover {
+.FancySelect li:hover,
+.FancySelect li.selected {
   background: #0d35c7 -webkit-linear-gradient(#355ceb,#0d35c7);
   -webkit-border-radius: 2px;
 }
 
-.FancySelect li:hover div {
+.FancySelect li:hover div,
+.FancySelect li.selected div {
   color: white;
 }
 
@@ -85,9 +88,6 @@
   display: none;
 }
 
-.FancySelect li.selected {
-  background: blue;
-}
 
 /*Fields*/
 

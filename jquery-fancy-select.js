@@ -19,6 +19,13 @@
     };
 
     var addEvents = function(){
+      
+      $("body").on("click",function(event){
+        if($(event.target).closest(".InnerWrapper").length == 0) {
+          hideList();
+        }
+      });
+      
       $(plugin.el).on("click","li", function(){
         var value = $(this).data("value");
         selectOption($(this),value);
@@ -38,6 +45,10 @@
 
       $(plugin.el).find("input").click(function(){
         showList();
+      });
+
+      $(plugin.input).blur(function(){
+        // hideList();
       });
 
       $(plugin.el).find("input").on("keyup", function(e) {

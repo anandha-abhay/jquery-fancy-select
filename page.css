@@ -1,14 +1,6 @@
-.polish {
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  font-size: 29px;
-}
-
 body {
-  padding: 15px;
+  padding: 15px 40px;
   background: #EFEFEF;
-  
 }
 
 select {
@@ -26,3 +18,9 @@ h4 {
   margin: 20px 0 5px 0;
 }
 
+.polish {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  font-size: 29px;
+}
