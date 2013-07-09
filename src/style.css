@@ -40,7 +40,7 @@
   position: absolute;
   right: 5px;
   top: 5px;
-  background: top no-repeat url(src/x_icon.png);
+  background: top no-repeat url(x_icon.png);
 }
 
 .FancySelect .SelectedItem a:hover {
