@@ -1,3 +1,5 @@
+This is a work in progress, I wouldn't use it quite yet. 
+========================================================
 jquery-fancy-select
 ===================
 
